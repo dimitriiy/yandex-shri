@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <title>Магазин мышек</title>
+  <meta charset='UTF-8' />
+</head>
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .modal {
+        position: absolute;
+        inset: 0;
+        background: white;
+    }
+</style>
+<body>
+<header>
+  <div>
+    <img src='https://contest.yandex.rumedia/logo.jpg' alt='logo' />
+    <span>Магазин мышек</span>
+  </div>
+</header>
+<nav>
+  <span>Меню</span>
+  <ul>
+    <li>
+      <a onClick="location.href='/'">Главная</a>
+    </li>
+    <li>
+      <a onClick="location.href='/delivery'">Доставка</a>
+    </li>
+    <li>
+      <a onClick="location.href='/contacts'">Контакты</a>
+    </li>
+  </ul>
+</nav>
+<main>
+  <p>Наша компания старается предоставлять первоклассные компьютерные мышки!</p>
+  <h2>Каталог</h2>
+  <ul>
+    <li>
+      <h3>Мышка 1</h3>
+      <img src='https://contest.yandex.rumedia/1.jpg' alt='1' />
+      <details>
+        <summary> Подробнее </summary>
+        <p> Инновационное устройство, которое обеспечивает точное и плавное управление курсором на экране. Мышка имеет эргономичный дизайн, который обеспечивает комфорт при работе, а также высокую точность позиционирования. </p>
+      </details>
+    </li>
+    <li>
+      <h3>Мышка 2</h3>
+      <img src='https://contest.yandex.rumedia/2.jpg' alt='2' />
+      <details>
+        <summary>Подробнее</summary>
+        <p> Мышка оснащена передовыми технологиями, которые позволяют ей работать на различных поверхностях и гарантируют высокую скорость отклика. Это делает её идеальным выбором для профессиональных пользователей и геймеров, которые ценят точность и скорость в работе. </p>
+      </details>
+    </li>
+    <li>
+      <h3>Мышка 3</h3>
+      <img src='https://contest.yandex.rumedia/3.jpg' alt='3' />
+      <details>
+        <summary> Подробнее </summary>
+        <p> Мышь имеет настраиваемую подсветку, которая не только придаёт ей стильный внешний вид, но и позволяет легко найти её в темноте. Вы можете выбрать любой цвет или режим подсветки, чтобы создать уникальную атмосферу и подчеркнуть свою индивидуальность. </p>
+      </details>
+    </li>
+  </ul>
+  <div>
+    <h2>Корзина</h2>
+    <button tabindex='0' onclick="document.querySelector('.modal').classList.remove('hidden');"> Сделать заказ </button>
+  </div>
+</main>
+<div class='hidden modal' id='modal' role="dialog" aria-labelledby="label" aria-describedby="description" aria-modal="true">
+  <h3>Ваш заказ</h3>
+  <form>
+    <span>Выберите мышку</span>
+    <select id='select'>
+      <option value='10'>Мышка 1</option>
+      <option value='20'>Мышка 2</option>
+      <option value='30'>Мышка 3</option>
+    </select>
+    <div>
+      <label id='color_label'>Выберите цвет</label>
+      <input type='radio' name='color' aria-checked='true' value='2' checked />
+      <span>серый</span>
+      <input type='radio' name='color' value='3' />
+      <span>белый</span>
+      <input type='radio' value='5' name='color' />
+      <span>черный</span>
+    </div>
+    <div>
+      <label for='email'>Электронная почта:</label>
+      <input type='text' id='email'>
+    </div>
+    <div>
+      <label for='phone'>Телефон</label>
+      <input type='text' id='phone' required>
+    </div>
+    <div>
+      <label for='address'>Адрес</label>
+      <input type='text' id='address' required>
+    </div>
+    <div tabindex='0' onClick='count()'>Рассчитать цену</div>
+    <div>Итоговая цена</div>
+    <span id='cost' aria-live='assertive'></span>
+  </form>
+</div>
+<aside>
+  <div>Тут могла быть ваша реклама!</div>
+</aside>
+<footer>
+  <div>ул. Льва Толстого, д.16</div>
+  <div>(с) Магазин мышек 2024</div>
+</footer>
+<script>
+  function count() {
+    document.querySelector('#cost').textContent = document.querySelector('#select').value * (document.querySelector('input[name="color"]:checked')?.value || 0);
+  }
+</script>
+<script type='module' src='/main.js'></script>
+</body>

@@ -1,0 +1,23 @@
+{
+  "name": "simple-http",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "bun --watch src/index.ts"
+  },
+  "dependencies": {
+    "chardet": "^2.0.0",
+    "cors": "^2.8.5",
+    "detect-character-encoding": "^0.9.0",
+    "express": "^4.19.2",
+    "iconv-lite": "^0.6.3",
+    "prettier": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "dotenv": "^16.4.5",
+    "supertest": "^7.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport'
+        content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+</head>
+<body>
+
+<h1>Hello</h1>
+<button id='btn'>Call API</button>
+</body>
+<script>
+
+  btn.addEventListener('click', e => {
+    fetch('http://localhost:5001', {
+      method: 'POST', headers: {
+        'Content-type': 'application/json',
+        'Authorization': `Bearer 12345`, // notice the Bearer before your token
+      },
+      body: JSON.stringify({ a: 1, data: [2] }),
+    });
+  });
+</script>
+</html>

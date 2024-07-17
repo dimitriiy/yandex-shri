@@ -1,0 +1,9 @@
+node_modules
+*.code-workspace
+.idea
+.env
+coverage
+junit.xml
+dist
+build
+.DS_Store
